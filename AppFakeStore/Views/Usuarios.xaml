@@ -1,0 +1,70 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:AppFakeStore.ViewModels"
+             x:Class="AppFakeStore.Views.Usuarios"
+             Title="Usuarios">
+
+    <ContentPage.BindingContext>
+        <viewModels:UsuarioListaViewModel />
+    </ContentPage.BindingContext>
+
+    <Grid>
+
+        <ActivityIndicator x:Name="LoadingIndicator"
+                           IsRunning="{Binding IsLoading}"
+                           IsVisible="{Binding IsLoading}"
+                           Color="SeaGreen"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           HeightRequest="50" />
+
+        <ScrollView IsVisible="{Binding IsDataLoaded}">
+            <CollectionView ItemsSource="{Binding Usuarios}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="Gray" CornerRadius="10" Padding="10" Margin="10" HasShadow="True">
+                            <Grid ColumnDefinitions="Auto,*,Auto" RowDefinitions="Auto,Auto,Auto" ColumnSpacing="10">
+
+                                <Image Grid.RowSpan="3"
+                                       Source="iconousuario.png" 
+                                       HeightRequest="60"
+                                       WidthRequest="60"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Start" />
+
+
+                                <Label Text="{Binding FullName}"
+                                       FontSize="20"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Start" 
+                                       Grid.Column="1" />
+
+
+                                <Label Text="{Binding email}"
+                                       FontSize="14"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Start"
+                                       Grid.Column="1"
+                                       Grid.Row="1" />
+
+
+                                <Button Text="Ver más detalles"
+                                        FontSize="14"
+                                        TextColor="White"
+                                        BackgroundColor="DarkBlue"
+                                        CornerRadius="10"
+                                        Padding="5,0"
+                                        Grid.Column="2"
+                                        Grid.RowSpan="2"
+                                        VerticalOptions="Center"
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:UsuarioListaViewModel}}, Path=VerDetalleCommand}"
+                                        CommandParameter="{Binding .}" />
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </ScrollView>
+    </Grid>
+</ContentPage>
+

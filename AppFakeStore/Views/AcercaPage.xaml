@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppFakeStore.Views.AcercaPage"
+             Title="AcercaPage"
+             BackgroundColor="#3b5998">
+
+    <VerticalStackLayout VerticalOptions="CenterAndExpand" Spacing="20" Padding="30">
+
+        
+        <Frame WidthRequest="300" HeightRequest="300" Padding="0" 
+               HasShadow="True" CornerRadius="150" 
+               HorizontalOptions="Center"
+               BackgroundColor="Transparent" BorderColor="White">
+            <Image Source="foto.jpg" WidthRequest="300" HeightRequest="300" 
+                   Aspect="AspectFill" 
+                   HorizontalOptions="Center" VerticalOptions="Center"/>
+        </Frame>
+
+        
+        <Label 
+            Text="Desarrollador de Software"
+            FontSize="Large"
+            FontAttributes="Bold"
+            TextColor="White"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        
+        <Label 
+            Text="Lautaro Tomás Schab"
+            FontSize="Medium"
+            TextColor="White"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        
+        <Button x:Name="IconBtn" Margin="0, 20" ContentLayout="Top, 5" 
+                Text="Contacto" Clicked="IconBtn_Clicked" 
+                WidthRequest="140" HeightRequest="60"
+                BackgroundColor="#4CAF50" TextColor="White">
+            <Button.ImageSource>
+                <FontImageSource FontFamily="MaterialDesignIcons" Glyph="&#xe158;" />
+            </Button.ImageSource>
+        </Button>
+
+        
+        <Button x:Name="BackBtn" ContentLayout="Top, 5" 
+                Text="Volver" Clicked="BackBtn_Clicked" 
+                WidthRequest="140" HeightRequest="60"
+                BackgroundColor="#F44336" TextColor="White">
+            <Button.ImageSource>
+                <FontImageSource FontFamily="MaterialDesignIcons" Glyph="&#xeba6;"/>
+            </Button.ImageSource>
+        </Button>
+    </VerticalStackLayout>
+</ContentPage>
+
